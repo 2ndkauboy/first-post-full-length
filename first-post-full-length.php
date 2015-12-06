@@ -30,5 +30,6 @@ function first_post_full_length_disable( $args = array() ) {
 
 	if ( ! is_admin() && $wp_the_query->is_main_query() ) {
 		$wp_the_query->is_feed = false;
+		remove_filter( 'the_post', 'first_post_full_length_disable' );
 	}
 }
